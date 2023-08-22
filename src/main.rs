@@ -94,7 +94,7 @@ struct PreparePayload {
 }
 
 fn prepare(payload: PreparePayload) -> Result<(), String> {
-    todo!()
+    todo!();
 }
 
 /// Handles the request received by the primary replica.
@@ -149,7 +149,7 @@ async fn handle_client_request(state: Arc<Mutex<State>>, payload: Payload) -> Re
     for replica in replicas.iter() {
         let prepare_url = format!("{}/prepare", replica.addr);
 
-        client
+        let _ = client
             .post(prepare_url)
             .body(serde_json::to_string(&prepare_payload).unwrap())
             .send()
